@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-primary: #D32F2F;
+  --color-background: #ffffff;
+  --color-foreground: #111111;
+  --font-sans: var(--font-mukta);
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #111111;
+  --primary: #D32F2F;
+}
+
+html {
+  font-size: 112.5%; /* Increases all rem-based sizes globally by 12.5% */
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+  overflow-x: hidden;
+}
+
+/* Base Animations & Utilities */
+.glass-effect {
+  @apply bg-white/80 backdrop-blur-md border border-white/20;
+}
+
+/* GSAP hidden class before reveal */
+.reveal-text, .reveal-element {
+  visibility: hidden;
+}
+
+.clip-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
