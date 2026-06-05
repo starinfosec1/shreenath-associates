@@ -651,10 +651,32 @@ export default function ServicesPage() {
     const [activeTab, setActiveTab] = useState<"loan" | "yojana" | "documents">("loan");
     const [selectedService, setSelectedService] = useState<typeof servicesList[0] | null>(null);
     const [showForm, setShowForm] = useState(false);
+    const [formData, setFormData] = useState({
+        name: "",
+        phone: "",
+        email: "",
+        address: "",
+        message: ""
+    });
 
     const filteredServices = servicesList.filter(service => {
         return getCategory(service.title) === activeTab;
     });
+
+    const getWhatsAppMessage = (serviceTitle: string) => {
+        if (!showForm) {
+            return `नमस्कार, मला ${serviceTitle} विषयी माहिती हवी आहे.`;
+        }
+
+        let msg = `नमस्कार, मला ${serviceTitle} विषयी माहिती हवी आहे.\n\n`;
+        if (formData.name) msg += `*नाव:* ${formData.name}\n`;
+        if (formData.phone) msg += `*संपर्क:* ${formData.phone}\n`;
+        if (formData.email) msg += `*ई-मेल:* ${formData.email}\n`;
+        if (formData.address) msg += `*पत्ता:* ${formData.address}\n`;
+        if (formData.message) msg += `*संदेश:* ${formData.message}\n`;
+        
+        return msg;
+    };
 
     return (
         <div className="py-20 bg-gray-50 min-h-screen">
@@ -847,30 +869,30 @@ export default function ServicesPage() {
                                             <h3 className="text-lg font-bold text-[#D32F2F] mb-4">
                                                 चौकशी फॉर्म
                                             </h3>
-                                            <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); alert('फॉर्म यशस्वीरित्या पाठवला गेला आहे!'); setShowForm(false); }}>
+                                            <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); }}>
                                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                                     <div>
                                                         <label className="block text-sm font-medium text-gray-700 mb-1">पूर्ण नाव</label>
-                                                        <input type="text" required className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#D32F2F] focus:border-transparent outline-none" placeholder="तुमचे नाव" />
+                                                        <input type="text" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#D32F2F] focus:border-transparent outline-none" placeholder="तुमचे नाव" />
                                                     </div>
                                                     <div>
                                                         <label className="block text-sm font-medium text-gray-700 mb-1">संपर्क क्रमांक</label>
-                                                        <input type="tel" required className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#D32F2F] focus:border-transparent outline-none" placeholder="तुमचा मोबाईल नंबर" />
+                                                        <input type="tel" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#D32F2F] focus:border-transparent outline-none" placeholder="तुमचा मोबाईल नंबर" />
                                                     </div>
                                                 </div>
                                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                                     <div>
                                                         <label className="block text-sm font-medium text-gray-700 mb-1">ई-मेल</label>
-                                                        <input type="email" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#D32F2F] focus:border-transparent outline-none" placeholder="तुमचा ई-मेल" />
+                                                        <input type="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#D32F2F] focus:border-transparent outline-none" placeholder="तुमचा ई-मेल" />
                                                     </div>
                                                     <div>
                                                         <label className="block text-sm font-medium text-gray-700 mb-1">पत्ता</label>
-                                                        <input type="text" required className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#D32F2F] focus:border-transparent outline-none" placeholder="तुमचा पत्ता" />
+                                                        <input type="text" value={formData.address} onChange={(e) => setFormData({ ...formData, address: e.target.value })} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#D32F2F] focus:border-transparent outline-none" placeholder="तुमचा पत्ता" />
                                                     </div>
                                                 </div>
                                                 <div>
                                                     <label className="block text-sm font-medium text-gray-700 mb-1">तुमचा संदेश</label>
-                                                    <textarea required rows={2} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#D32F2F] focus:border-transparent outline-none" placeholder="तुमचा संदेश येथे लिहा..." defaultValue={`मला ${selectedService.title} विषयी माहिती हवी आहे.`}></textarea>
+                                                    <textarea rows={2} value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#D32F2F] focus:border-transparent outline-none" placeholder="तुमचा संदेश येथे लिहा..."></textarea>
                                                 </div>
                                             </form>
                                         </div>
@@ -880,7 +902,7 @@ export default function ServicesPage() {
                                 {/* Footer Buttons */}
                                 <div className="flex flex-col sm:flex-row gap-3">
                                     <a
-                                        href={`https://wa.me/919860946943?text=नमस्कार,%20मला%20${encodeURIComponent(selectedService.title)}%20विषयी%20माहिती%20हवी%20आहे.`}
+                                        href={`https://wa.me/919860946943?text=${encodeURIComponent(getWhatsAppMessage(selectedService.title))}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="flex-1 inline-flex items-center justify-center px-4 py-3.5 bg-[#25D366] text-white rounded-xl font-bold hover:bg-[#1fae54] transition-colors text-sm sm:text-base shadow-md"
@@ -888,7 +910,7 @@ export default function ServicesPage() {
                                         <Phone size={18} className="mr-2" /> ९८६०९४६९४३
                                     </a>
                                     <a
-                                        href={`https://wa.me/919371513506?text=नमस्कार,%20मला%20${encodeURIComponent(selectedService.title)}%20विषयी%20माहिती%20हवी%20आहे.`}
+                                        href={`https://wa.me/919371513506?text=${encodeURIComponent(getWhatsAppMessage(selectedService.title))}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="flex-1 inline-flex items-center justify-center px-4 py-3.5 bg-[#25D366] text-white rounded-xl font-bold hover:bg-[#1fae54] transition-colors text-sm sm:text-base shadow-md"
