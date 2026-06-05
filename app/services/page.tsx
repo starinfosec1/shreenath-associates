@@ -646,10 +646,7 @@ const getCategory = (title: string) => {
 export default function ServicesPage() {
     const [activeTab, setActiveTab] = useState<"loan" | "yojana" | "documents">("loan");
     const [selectedService, setSelectedService] = useState<typeof servicesList[0] | null>(null);
-<<<<<<< HEAD
     const [showForm, setShowForm] = useState(false);
-=======
->>>>>>> b77d395daaf052e08c208b66b4a251f69048062b
 
     const filteredServices = servicesList.filter(service => {
         return getCategory(service.title) === activeTab;
@@ -722,11 +719,7 @@ export default function ServicesPage() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.4, delay: index * 0.05 }}
                                 className="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 cursor-pointer group"
-<<<<<<< HEAD
                                 onClick={() => { setSelectedService(service); setShowForm(false); }}
-=======
-                onClick={() => setSelectedService(service)}
->>>>>>> b77d395daaf052e08c208b66b4a251f69048062b
                             >
                                 <div className="relative h-48 w-full bg-white overflow-hidden">
                                     <Image
@@ -768,11 +761,7 @@ export default function ServicesPage() {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-<<<<<<< HEAD
                             onClick={() => { setSelectedService(null); setShowForm(false); }}
-=======
-              onClick={() => setSelectedService(null)}
->>>>>>> b77d395daaf052e08c208b66b4a251f69048062b
                             className="fixed inset-0 bg-black/60 backdrop-blur-sm"
                         />
 
@@ -783,19 +772,11 @@ export default function ServicesPage() {
                                 animate={{ opacity: 1, scale: 1, y: 0 }}
                                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
                                 transition={{ type: "spring", duration: 0.4 }}
-<<<<<<< HEAD
                                 className="relative w-full max-w-2xl rounded-3xl bg-white p-6 md:p-8 shadow-2xl overflow-y-auto max-h-[90vh] border border-gray-100 z-10"
                             >
                                 {/* Close Button */}
                                 <button
                                     onClick={() => { setSelectedService(null); setShowForm(false); }}
-=======
-                className="relative w-full max-w-2xl rounded-3xl bg-white p-6 md:p-8 shadow-2xl overflow-hidden border border-gray-100 z-10"
-              >
-                {/* Close Button */}
-                <button
-                  onClick={() => setSelectedService(null)}
->>>>>>> b77d395daaf052e08c208b66b4a251f69048062b
                                     className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 hover:bg-gray-100 p-2 rounded-full transition-colors"
                                     aria-label="Close modal"
                                 >
@@ -843,7 +824,6 @@ export default function ServicesPage() {
                                     </ul>
                                 </div>
 
-<<<<<<< HEAD
     {/* Form Toggle Button */ }
     {
         !showForm && (
@@ -898,15 +878,10 @@ export default function ServicesPage() {
 
     {/* Footer Buttons */ }
     <div className="flex flex-col sm:flex-row gap-3">
-=======
-                {/* Footer Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 mt-6">
->>>>>>> b77d395daaf052e08c208b66b4a251f69048062b
             <a
                 href={`https://wa.me/919860946943?text=नमस्कार,%20मला%20${encodeURIComponent(selectedService.title)}%20विषयी%20माहिती%20हवी%20आहे.`}
                 target="_blank"
                 rel="noopener noreferrer"
-<<<<<<< HEAD
                 className="flex-1 inline-flex items-center justify-center px-4 py-3.5 bg-[#25D366] text-white rounded-xl font-bold hover:bg-[#1fae54] transition-colors text-sm sm:text-base shadow-md"
             >
                 <Phone size={18} className="mr-2" /> ९८६०९४६९४३
@@ -922,15 +897,6 @@ export default function ServicesPage() {
             <button
                 onClick={() => { setSelectedService(null); setShowForm(false); }}
                 className="px-6 py-3.5 bg-gray-100 text-gray-700 rounded-xl font-bold hover:bg-gray-200 transition-colors text-sm sm:text-base"
-=======
-                    className="flex-grow inline-flex items-center justify-center px-6 py-3.5 bg-[#25D366] text-white rounded-xl font-bold hover:bg-[#1fae54] transition-colors text-base md:text-lg shadow-md"
-                  >
-                    <Phone size={20} className="mr-2" /> WhatsApp वर चौकशी करा
-                  </a>
-                  <button
-                    onClick={() => setSelectedService(null)}
-                    className="px-6 py-3.5 bg-gray-100 text-gray-700 rounded-xl font-bold hover:bg-gray-200 transition-colors text-base md:text-lg"
->>>>>>> b77d395daaf052e08c208b66b4a251f69048062b
             >
                 बंद करा
             </button>
