@@ -38,7 +38,7 @@ export default function AboutPage() {
               viewport={{ once: true }}
               className="w-full lg:w-1/2"
             >
-              <div className="relative h-[600px] rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative h-[300px] md:h-[400px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
                 <Image
                   src="/images/business_loan.png"
                   alt="Our Team"

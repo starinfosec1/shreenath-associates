@@ -50,7 +50,7 @@ export default function ContactPage() {
 
       <section className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="flex flex-col lg:flex-row gap-16">
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-16">
 
             {/* Contact Info */}
             <motion.div
@@ -110,8 +110,8 @@ export default function ContactPage() {
               viewport={{ once: true }}
               className="w-full lg:w-2/3"
             >
-              <div className="bg-white p-8 md:p-12 rounded-2xl shadow-xl border border-gray-100">
-                <h2 className="text-3xl font-bold text-[#111111] mb-8">आम्हाला संदेश पाठवा</h2>
+              <div className="bg-white p-6 sm:p-8 md:p-12 rounded-2xl shadow-xl border border-gray-100">
+                <h2 className="text-2xl sm:text-3xl font-bold text-[#111111] mb-8">आम्हाला संदेश पाठवा</h2>
                 <form className="space-y-6" onSubmit={handleSubmit}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
@@ -188,7 +188,7 @@ export default function ContactPage() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mt-16 rounded-2xl overflow-hidden shadow-lg h-[400px] bg-gray-200"
+            className="mt-12 md:mt-16 rounded-2xl overflow-hidden shadow-lg h-[300px] md:h-[400px] bg-gray-200"
           >
             <iframe
               src="https://maps.google.com/maps?q=17.0473999,74.2598963&t=&z=17&ie=UTF8&iwloc=&output=embed"
@@ -205,10 +205,10 @@ export default function ContactPage() {
               href="https://www.google.com/maps/place/17%C2%B002'50.6%22N+74%C2%B015'35.6%22E/@17.0475544,74.2590887,19z/data=!4m4!3m3!8m2!3d17.0473999!4d74.2598963?hl=en&entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-6 py-3.5 bg-[#D32F2F] text-white rounded-xl font-bold hover:bg-[#b71c1c] transition-colors text-base md:text-lg shadow-md gap-2"
+              className="inline-flex items-center justify-center w-full sm:w-auto px-6 py-3.5 bg-[#D32F2F] text-white rounded-xl font-bold hover:bg-[#b71c1c] transition-colors text-base md:text-lg shadow-md gap-2"
             >
-              <MapPin size={20} />
-              गुगल मॅपवर मार्ग पहा (View on Google Maps)
+              <MapPin size={20} className="flex-shrink-0" />
+              <span className="text-center">गुगल मॅपवर मार्ग पहा (View on Google Maps)</span>
             </a>
           </div>
         </div>

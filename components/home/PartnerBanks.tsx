@@ -1,11 +1,22 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const banks = [
-  "SBI", "HDFC BANK", "ICICI Bank", "Axis Bank",
-  "Bajaj Finserv", "Kotak", "IDFC FIRST Bank", "IndusInd Bank",
-  "MANAPPURAM", "RBL BANK", "Union Bank", "Hero FinCorp", "Chola"
+  { name: "SBI", image: "/banks/sbi.png" },
+  { name: "HDFC BANK", image: "/banks/hdfc.png" },
+  { name: "ICICI Bank", image: "/banks/icici.png" },
+  { name: "Axis Bank", image: "/banks/axis.png" },
+  { name: "Bajaj Finserv", image: "/banks/bajaj.png" },
+  { name: "Kotak", image: "/banks/kotak.png" },
+  { name: "IDFC FIRST Bank", image: "/banks/idfc.png" },
+  { name: "IndusInd Bank", image: "/banks/indus.png" },
+  { name: "Muthoot Finance", image: "/banks/muthoot.png" },
+  { name: "RBL BANK", image: "/banks/rbl.png" },
+  { name: "Union Bank", image: "/banks/union.png" },
+  { name: "Hero FinCorp", image: "/banks/hero.png" },
+  { name: "Chola", image: "/banks/chola.png" }
 ];
 
 export default function PartnerBanks() {
@@ -18,17 +29,33 @@ export default function PartnerBanks() {
 
       <div className="relative flex w-full">
         <motion.div
-          className="flex space-x-12 px-6 whitespace-nowrap"
-          animate={{ x: [0, -1000] }}
-          transition={{ repeat: Infinity, ease: "linear", duration: 20 }}
+          className="flex space-x-12 px-6 whitespace-nowrap w-max"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
         >
           {/* Double the array for seamless loop */}
           {[...banks, ...banks].map((bank, i) => (
             <div
               key={i}
-              className="px-8 py-4 bg-white rounded-xl shadow-sm border border-gray-100 text-xl font-bold text-[#111111] opacity-70 hover:opacity-100 hover:scale-105 transition-all flex items-center justify-center min-w-[200px]"
+              className="px-6 py-4 bg-white rounded-xl shadow-sm border border-gray-100 opacity-70 hover:opacity-100 hover:scale-105 transition-all flex items-center justify-center min-w-[280px] h-[130px] relative group"
             >
-              {bank}
+              <div className="relative w-full h-full flex items-center justify-center">
+                {/* Fallback to text if image fails/not loaded by rendering text visually hidden or using title */}
+                <Image
+                  src={bank.image}
+                  alt={bank.name}
+                  fill
+                  className="object-contain p-2"
+                  onError={(e) => {
+                    // Fallback to displaying the name if image is missing
+                    e.currentTarget.style.display = 'none';
+                    if (e.currentTarget.parentElement?.nextElementSibling) {
+                      e.currentTarget.parentElement.nextElementSibling.classList.remove('hidden');
+                    }
+                  }}
+                />
+              </div>
+              <span className="hidden font-bold text-xl text-[#111111] absolute text-center w-full">{bank.name}</span>
             </div>
           ))}
         </motion.div>
