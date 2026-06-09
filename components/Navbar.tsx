@@ -11,6 +11,7 @@ const links = [
   { href: "/about", label: "आमच्याबद्दल" },
   { href: "/services", label: "सेवा" },
   { href: "/reviews", label: "अभिप्राय" },
+  { href: "/happy-customers", label: "समाधानी ग्राहक" },
   { href: "/rules", label: "नियम व अटी" },
   { href: "/contact", label: "संपर्क" },
 ];
@@ -48,7 +49,7 @@ export default function Navbar() {
 
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden xl:flex space-x-8">
             {links.map((link) => (
               <Link
                 key={link.href}
@@ -61,7 +62,7 @@ export default function Navbar() {
             ))}
           </div>
 
-          <div className="hidden md:block">
+          <div className="hidden xl:block">
             <a
               href="tel:+919860946943"
               className="bg-[#D32F2F] text-white px-5 py-2 rounded-full font-bold hover:bg-red-700 transition-colors"
@@ -72,7 +73,7 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-[#111111] p-2"
+            className="xl:hidden text-[#111111] p-2"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X size={28} /> : <Menu size={28} />}
@@ -82,7 +83,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-gray-100">
+        <div className="xl:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-gray-100">
           <div className="flex flex-col py-4 px-4 space-y-4">
             {links.map((link) => (
               <Link
