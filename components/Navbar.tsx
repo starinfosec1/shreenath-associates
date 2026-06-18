@@ -12,7 +12,7 @@ const links = [
   { href: "/services", label: "सेवा" },
   { href: "/reviews", label: "अभिप्राय" },
   { href: "/happy-customers", label: "समाधानी ग्राहक" },
-  { href: "/rules", label: "नियम व अटी" },
+  // { href: "/rules", label: "नियम व अटी" },
   { href: "/contact", label: "संपर्क" },
 ];
 

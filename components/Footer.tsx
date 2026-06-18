@@ -31,7 +31,7 @@ export default function Footer() {
               <li><Link href="/about" className="text-gray-400 hover:text-white transition flex items-center"><ArrowRight size={16} className="mr-2 text-[#D32F2F]" /> आमच्याबद्दल</Link></li>
               <li><Link href="/services" className="text-gray-400 hover:text-white transition flex items-center"><ArrowRight size={16} className="mr-2 text-[#D32F2F]" /> सेवा</Link></li>
               <li><Link href="/happy-customers" className="text-gray-400 hover:text-white transition flex items-center"><ArrowRight size={16} className="mr-2 text-[#D32F2F]" /> समाधानी ग्राहक</Link></li>
-              <li><Link href="/rules" className="text-gray-400 hover:text-white transition flex items-center"><ArrowRight size={16} className="mr-2 text-[#D32F2F]" /> नियम व अटी</Link></li>
+              {/* <li><Link href="/rules" className="text-gray-400 hover:text-white transition flex items-center"><ArrowRight size={16} className="mr-2 text-[#D32F2F]" /> नियम व अटी</Link></li> */}
               <li><Link href="/contact" className="text-gray-400 hover:text-white transition flex items-center"><ArrowRight size={16} className="mr-2 text-[#D32F2F]" /> संपर्क</Link></li>
             </ul>
           </div>

@@ -12,9 +12,28 @@ const mukta = Mukta({
 });
 
 export const metadata: Metadata = {
-  title: "श्रीनाथ Associates | Loan & Finance Consultancy",
-  description: "मराठी भाषेतील आधुनिक, SEO Friendly, fully responsive loan & finance consultancy website. सर्व प्रकारचे बँक व फायनान्स लोन उपलब्ध.",
-  keywords: ["लोन सेवा", "गृह कर्ज", "व्यवसाय कर्ज", "मुद्रा लोन", "finance services", "personal loan", "business loan", "home loan consultant", "poultry loan"],
+  title: "श्रीनाथ Associates | Expert Loan & Finance Consultancy",
+  description: "श्रीनाथ Associates - Your trusted Loan & Finance Consultancy. सर्व प्रकारचे बँक आणि फायनान्स लोन (गृह कर्ज, व्यवसाय कर्ज, मुद्रा लोन) त्वरित आणि सुलभ प्रक्रियेसह उपलब्ध.",
+  keywords: [
+    "लोन सेवा",
+    "गृह कर्ज",
+    "व्यवसाय कर्ज",
+    "मुद्रा लोन",
+    "पोल्ट्री लोन",
+    "कृषी कर्ज",
+    "finance services",
+    "personal loan",
+    "business loan",
+    "home loan consultant",
+    "poultry loan",
+    "Shreenath Associates",
+    "best loan consultant",
+    "instant loan approval",
+    "financial advisory",
+    "MSME business loan",
+    "project funding expert",
+    "CMEGP and PMEGP loan consultant"
+  ],
   icons: {
     icon: "/logo.png",
   },
