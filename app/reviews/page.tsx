@@ -87,15 +87,7 @@ export default function ReviewsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
           >
-            <a
-              href="https://search.google.com/local/writereview?placeid=YOUR_PLACE_ID"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#D32F2F] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#b71c1c] transition-colors"
-            >
-              <Star size={20} fill="currentColor" />
-              Google वर रिव्ह्यू द्या
-            </a>
+
           </motion.div>
         </div>
       </section>
