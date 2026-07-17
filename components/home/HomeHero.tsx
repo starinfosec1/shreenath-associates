@@ -36,7 +36,7 @@ export default function HomeHero() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
             <a
-              href="https://wa.me/919371513506?text=नमस्कार,%20मला%20कर्जाविषयी%20माहिती%20हवी%20आहे."
+              href="https://wa.me/919860946943?text=नमस्कार,%20मला%20कर्जाविषयी%20माहिती%20हवी%20आहे."
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto px-8 py-4 bg-[#25D366] text-white rounded-full font-bold text-lg hover:bg-[#1fae54] transition-all transform hover:scale-105 shadow-lg flex items-center justify-center"
